@@ -3,7 +3,7 @@
 STATUS="$(git status)"
 
 if [[ $STATUS == *"nothing to commit, working tree clean"* ]]; then
-  rm out/ -rf
+  rm -rf out/
   npm run build       # build using next
   touch out/.nojekyll # add .nojekyll so _next/ can be pushed
   git add out/ -f     # force add public/ (cuz it's ignored)

@@ -1,14 +1,16 @@
 import { firaCode } from "./ui/fonts";
 
-const termLine = firaCode.className + " text-xl mb-1 md:text-2xl md:mb-3"
+const termLine = firaCode.className + " text-lg sm:text-xl sm:mb-1 md:text-2xl md:mb-3"
 const menuBtn = " rounded-full h-[15] w-[15] my-auto ml-2"
 const link = "underline hover:font-bold"
+const shortLineBreak = <div className="leading-[0.5]"><br className="inline sm:hidden" /></div>
+
 
 export default function Home() {
   return (
     <div className="w-full justify-center flex selection:bg-[#3d59a1]" >
       <div className="max-w-3xl w-full">
-        <div className={firaCode.className + " md:text-5xl text-4xl mb-8 mt-3 ml-3"}>
+        <div className={firaCode.className + " md:text-5xl sm:text-4xl text-3xl sm:mb-8 sm:mt-3 mb-5 ml-3"}>
           {"> Hi! I'm"} <span className="text-highlight">Yu Min</span>!
           {/* <span className="bg-[#f4dbd6] animate-blink">&nbsp;</span> */}
         </div>
@@ -38,30 +40,32 @@ export default function Home() {
             </div>
             <div className={termLine + " whitespace-pre-wrap"}>
               {/*whitespace-pre-wrap for it not to condense my spaces*/}
-              <span className="text-myBlue">
-                Name             Stack
-              </span><br />
+              <span className="text-myBlue hidden sm:inline">
+                Name             Stack<br />
+              </span>
               <a
                 href="https://github.com/church-sg/cis-youth-hymnal-v2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={link + " text-highlight"}>
                 CIS-Youth-Hymnal
-              </a> Hugo, HTML, CSS, JS<br />
+              </a> <br className="inline sm:hidden" />Hugo, HTML, CSS, JS<br />
+              {shortLineBreak}
               <a
                 href="https://github.com/notyumin/scripts-for-fun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={link + " text-highlight"}>
                 Scripts-For-Fun
-              </a>  Python, Go<br />
+              </a>  <br className="inline sm:hidden" />Python, Go<br />
+              {shortLineBreak}
               <a
-                href=""
+                href="https://github.com/notyumin/notyumin.github.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={link + " text-highlight"}>
-                My-Portfolio
-              </a>     Next.js, Typescript, Tailwind
+                Portfolio
+              </a>        <br className="inline sm:hidden" />Next.js, Typescript, Tailwind
             </div>
             <br />
             <div className={termLine}>
