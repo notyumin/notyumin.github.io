@@ -11,7 +11,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        highlight: "var(--highlight)",
+        light: "var(--bg-light)",
+        myBlue: "var(--blue)",
       },
+      keyframes: {
+        blink: {
+          '0%': { visibility: "hidden" },
+        }
+      },
+      animation: {
+        blink: "blink 1s steps(2) infinite;"
+      }
     },
   },
   plugins: [],
