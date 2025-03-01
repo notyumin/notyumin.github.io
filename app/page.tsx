@@ -1,7 +1,7 @@
 import { firaCode } from "./ui/fonts";
 
 const termLine = firaCode.className + " text-lg sm:text-xl sm:mb-1 md:text-2xl md:mb-3"
-const menuBtn = " rounded-full h-[15] w-[15] my-auto ml-2"
+const menuBtn = "rounded-full h-[15px] w-[15px] my-auto ml-2"
 const link = "underline hover:font-bold"
 const shortLineBreak = <div className="leading-[0.5]"><br className="inline sm:hidden" /></div>
 
@@ -15,7 +15,7 @@ export default function Home() {
           {/* <span className="bg-[#f4dbd6] animate-blink">&nbsp;</span> */}
         </div>
         <div className="rounded-lg bg-light shadow-xl">
-          <div className=" h-[28] bg-zinc-800 rounded-t-lg flex">
+          <div className="h-[28px] bg-zinc-800 rounded-t-lg flex">
             <div className={menuBtn + " bg-[#f96256]"} />
             <div className={menuBtn + " bg-[#fdbc3d]"} />
             <div className={menuBtn + " bg-[#33c948]"} />
