@@ -7,55 +7,19 @@ const skills = [
   " Express.js",
   " golang",
   " sql",
+  " bash",
 ]
 
-function SkillsList(skills: string[], cols: number) {
-  // separate into rows 
-  let rowList: string[][] = [[]]
-  skills.forEach((skill) => {
-    for (let i = 0; i < rowList.length; i++) {
-      if (rowList[i].length < cols) {
-        rowList[i].push(skill)
-        return
-      }
-    }
-    rowList.push([skill])
-  })
-
-  // find max length in col
-  const maxLengths: number[] = []
-  for (let i = 0; i < rowList.length; i++) {
-    const col = rowList.map((row) => {
-      return row[i]
-    })
-    console.log(col)
-    maxLengths.push(col.reduce((maxLength, skill) => {
-      skill = skill || ""
-      return Math.max(maxLength, skill.length)
-    }, 0))
-  }
-
-  // pad strings to same length as longest in col 
-  for (let i = 0; i < maxLengths.length; i++) {
-    rowList = rowList.map((row) => {
-      row[i] = row[i] || ""
-      console.log(row[i] + row[i].length)
-      row[i] = row[i].padEnd(maxLengths[i] + 1)
-      console.log(row[i] + row[i].length, maxLengths[i])
-      return row
-    })
-  }
-
-  // generate markup
+function SkillsList(skills: string[]) {
   return (
-    <div>
-      {rowList.map((row) => {
-        return <div key={row[0][0]}>{row.map((col) => {
-          return col
-        })}<br /></div>
-      })}
-    </div>
-  )
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-1 gap-x-6" >
+      {
+        skills.map((skill, i) => (
+          <div key={i} className="whitespace-nowrap">{skill}</div>
+        ))
+      }
+    </ div>
+  );
 }
 
 const termLine = firaCode.className + " text-lg sm:text-xl sm:mb-1 md:mb-3"
@@ -88,19 +52,18 @@ export default function Home() {
             <div className={termLine}>
               {">"} ls my-skills
             </div>
-            {/* <div className={termLine + " whitespace-pre-wrap"}> */}
-            {/*    python   󰛦 typescript  <span className="inline sm:hidden" ><br /></span> */}
-            {/*    Node.js  <br className="hidden sm:inline" /> */}
-            {/*    Express.js<span className="inline sm:hidden" ><br /></span> golang   {} */}
-            {/*    sql <br className="hidden sm:inline" /><span className="inline sm:hidden" ><br /></span> */}
-            {/*    bash */}
+            <div className={termLine}>
+              {SkillsList(skills)}
+            </div>
+            {/* <div className={termLine + " whitespace-pre-wrap sm:hidden block"}> */}
+            {/*   {SkillsList(skills, 2)} */}
             {/* </div> */}
-            <div className={termLine + " whitespace-pre-wrap sm:hidden block"}>
-              {SkillsList(skills, 2)}
-            </div>
-            <div className={termLine + " whitespace-pre-wrap sm:block hidden"}>
-              {SkillsList(skills, 3)}
-            </div>
+            {/* <div className={termLine + " whitespace-pre-wrap lg:hidden sm:block hidden"}> */}
+            {/*   {SkillsList(skills, 3)} */}
+            {/* </div> */}
+            {/* <div className={termLine + " whitespace-pre-wrap lg:block hidden"}> */}
+            {/*   {SkillsList(skills, 4)} */}
+            {/* </div> */}
             <br />
             <div className={termLine}>
               {">"} ls -l my-projects
