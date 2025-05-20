@@ -1,4 +1,5 @@
 import { firaCode } from "./ui/fonts";
+import React from "react";
 
 const skills = [
   " python",
@@ -10,22 +11,33 @@ const skills = [
   " bash",
 ]
 
-function SkillsList(skills: string[]) {
-  return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-1 gap-x-6" >
-      {
-        skills.map((skill, i) => (
-          <div key={i} className="whitespace-nowrap">{skill}</div>
-        ))
-      }
-    </ div>
-  );
+type project = {
+  name: string,
+  link: string,
+  stack: string
 }
+
+const projects: project[] = [
+  {
+    name: "CIS-Youth-Hymnal",
+    link: "https://github.com/church-sg/cis-youth-hymnal-v2",
+    stack: "Hugo, HTML, CSS, JS"
+  },
+  {
+    name: "Scripts-For-Fun",
+    link: "https://github.com/notyumin/scripts-for-fun",
+    stack: "Python, Go"
+  },
+  {
+    name: "Portfolio",
+    link: "https://github.com/notyumin/notyumin.github.io",
+    stack: "Next.js, Typescript, Tailwind"
+  },
+]
 
 const termLine = firaCode.className + " text-lg sm:text-xl sm:mb-1 md:mb-3"
 const menuBtn = "rounded-full h-[15px] w-[15px] my-auto ml-2"
 const link = "underline hover:font-bold"
-const shortLineBreak = <div className="leading-[0.5]"><br className="inline sm:hidden" /></div>
 
 export default function Home() {
   return (
@@ -52,51 +64,37 @@ export default function Home() {
             <div className={termLine}>
               {">"} ls my-skills
             </div>
-            <div className={termLine}>
-              {SkillsList(skills)}
+            <div className={termLine + " grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-1 gap-x-6"} >
+              {
+                skills.map((skill, i) => (
+                  <div key={i} className="whitespace-nowrap">{skill}</div>
+                ))
+              }
             </div>
-            {/* <div className={termLine + " whitespace-pre-wrap sm:hidden block"}> */}
-            {/*   {SkillsList(skills, 2)} */}
-            {/* </div> */}
-            {/* <div className={termLine + " whitespace-pre-wrap lg:hidden sm:block hidden"}> */}
-            {/*   {SkillsList(skills, 3)} */}
-            {/* </div> */}
-            {/* <div className={termLine + " whitespace-pre-wrap lg:block hidden"}> */}
-            {/*   {SkillsList(skills, 4)} */}
-            {/* </div> */}
             <br />
             <div className={termLine}>
               {">"} ls -l my-projects
             </div>
-            <div className={termLine + " whitespace-pre-wrap"}>
-              {/*whitespace-pre-wrap for it not to condense my spaces*/}
-              <span className="text-myBlue hidden sm:inline">
-                Name             Stack<br />
-              </span>
-              <a
-                href="https://github.com/church-sg/cis-youth-hymnal-v2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link + " text-highlight"}>
-                CIS-Youth-Hymnal
-              </a> <br className="inline sm:hidden" />Hugo, HTML, CSS, JS<br />
-              {shortLineBreak}
-              <a
-                href="https://github.com/notyumin/scripts-for-fun"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link + " text-highlight"}>
-                Scripts-For-Fun
-              </a>  <br className="inline sm:hidden" />Python, Go<br />
-              {shortLineBreak}
-              <a
-                href="https://github.com/notyumin/notyumin.github.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link + " text-highlight"}>
-                Portfolio
-              </a>        <br className="inline sm:hidden" />Next.js, Typescript, Tailwind
+            <div className={termLine + " inline-grid grid-cols-[auto_auto] gap-x-4 gap-y-2"}>
+              {/* Header */}
+              <span className="text-myBlue">Name</span>
+              <span className="text-myBlue">Stack</span>
+
+              {projects.map((project, index) => (
+                <React.Fragment key={index}>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={link + " text-highlight"}
+                  >
+                    {project.name}
+                  </a>
+                  <span>{project.stack}</span>
+                </React.Fragment>
+              ))}
             </div>
+            <br />
             <br />
             <div className={termLine}>
               {">"} ls my-contacts
