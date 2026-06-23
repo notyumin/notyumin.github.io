@@ -35,9 +35,11 @@ const projects: project[] = [
   },
 ]
 
-const termLine = firaCode.className + " text-lg sm:text-xl sm:mb-1 md:mb-3"
-const menuBtn = "rounded-full h-[15px] w-[15px] my-auto ml-2"
-const link = "underline hover:font-bold"
+const styles = {
+  termLine: firaCode.className + " text-lg sm:text-xl sm:mb-1 md:mb-3",
+  menuBtn: "rounded-full h-[15px] w-[15px] my-auto ml-2",
+  link: "underline hover:font-bold",
+}
 
 export default function Home() {
   return (
@@ -49,22 +51,22 @@ export default function Home() {
         </div>
         <div className="rounded-lg bg-light shadow-xl">
           <div className="h-[28px] bg-zinc-800 rounded-t-lg flex">
-            <div className={menuBtn + " bg-[#f96256]"} />
-            <div className={menuBtn + " bg-[#fdbc3d]"} />
-            <div className={menuBtn + " bg-[#33c948]"} />
+            <div className={styles.menuBtn + " bg-[#f96256]"} />
+            <div className={styles.menuBtn + " bg-[#fdbc3d]"} />
+            <div className={styles.menuBtn + " bg-[#33c948]"} />
           </div>
           <div className="p-5">
-            <div className={termLine}>
+            <div className={styles.termLine}>
               {">"} cat about-me.txt
             </div>
-            <div className={termLine}>
-              {"I'm"} currently more of a web developer, but {"I'm"} excited to explore new areas!<br />
+            <div className={styles.termLine}>
+              {"I'm"} currently most familiar with web dev technologies, but {"I'm"} excited to learn about backend, lower-level tech and systems programming!<br />
             </div>
             <br />
-            <div className={termLine}>
+            <div className={styles.termLine}>
               {">"} ls my-skills
             </div>
-            <div className={termLine + " grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-1 gap-x-6"} >
+            <div className={styles.termLine + " grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-1 gap-x-6"} >
               {
                 skills.map((skill, i) => (
                   <div key={i} className="whitespace-nowrap">{skill}</div>
@@ -72,10 +74,10 @@ export default function Home() {
               }
             </div>
             <br />
-            <div className={termLine}>
+            <div className={styles.termLine}>
               {">"} ls -l my-projects
             </div>
-            <div className={termLine + " inline-grid grid-cols-[auto_auto] gap-x-4 gap-y-2"}>
+            <div className={styles.termLine + " inline-grid grid-cols-[auto_auto] gap-x-4 gap-y-2"}>
               {/* Header */}
               <span className="text-myBlue">Name</span>
               <span className="text-myBlue">Stack</span>
@@ -86,7 +88,7 @@ export default function Home() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={link + " text-highlight"}
+                    className={styles.link + " text-highlight"}
                   >
                     {project.name}
                   </a>
@@ -96,15 +98,15 @@ export default function Home() {
             </div>
             <br />
             <br />
-            <div className={termLine}>
+            <div className={styles.termLine}>
               {">"} ls my-contacts
             </div>
-            <div className={termLine}>
+            <div className={styles.termLine}>
               <a
                 href="https://github.com/notyumin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={link}>
+                className={styles.link}>
                 Github
               </a>
               &nbsp;
@@ -112,12 +114,12 @@ export default function Home() {
                 href="https://www.linkedin.com/in/yu-min-tan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={link}>
+                className={styles.link}>
                 LinkedIn
               </a>
             </div>
             <br />
-            <div className={termLine}>
+            <div className={styles.termLine}>
               {">"} <span className="bg-[#f4dbd6] animate-blink">&nbsp;</span>
             </div>
           </div>
