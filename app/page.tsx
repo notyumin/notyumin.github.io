@@ -99,6 +99,17 @@ export default function Home() {
             <br />
             <br />
             <div className={styles.termLine}>
+              {">"} curl -O&nbsp;
+              <a
+                href="https://github.com/notyumin/resume/blob/6387e593294d3d3dc59b9abcf6e44d9205763637/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link + " text-highlight"}>
+                resume.pdf
+              </a>
+            </div>
+            <br />
+            <div className={styles.termLine}>
               {">"} ls my-contacts
             </div>
             <div className={styles.termLine}>
